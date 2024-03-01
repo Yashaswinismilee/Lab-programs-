@@ -1,25 +1,34 @@
+
 import java.util.Scanner;
-public class sortString
-{
-  public static void  main (String args[])
-  {
-    String list[]=new String[10];
-    Scanner inScanner = new Scanner(System.in);
-    System.out.println("enter list of name one by one");
-    for(int i=0;i<10;i++)
-            list[i]=inScanner.next();
-    for (int i=0; i<10; i++)
-    {
-           for(int j=1;j<10;j++)
-               if(list[j-1].compareTo(list[i])>0)
-               {
-                 String str=list[j];
-                 list[j]=list[j-1];
-                 list[j-1]=str;
-               }
-    }
-    for (int i=0;i<10;i++)
-         System.out.println(list[i]);
-    inScanner.close();
-  }
+public class DemoArraySort{
+	public static void main(String args[])
+	{
+		int array[]= new int[10];
+		Scanner inScanner=new Scanner(System.in);
+		System.out.println("Enter array size");
+		int size= inScanner.nextInt();
+		System.out.println("Enter array elements one by one");
+		for (int i=0; i<size; i++)
+			array[i]=inScanner.nextInt();
+		System.out.println("array elements before sorting are...");
+		for (int i=0; i<size; i++)
+			System.out.println(array[i]+ "\t");
+		System.out.println();
+		inScanner.close();
+        for (int i=0; i<size; i++)
+        {
+			int minindex=i;
+			for(int j=i+1 ;j<size; j++)
+			{
+				if (array[j]< array[minindex])
+					minindex=j;
+			}
+			int temporary =array[i];
+			array[i]= array[minindex];
+			array[minindex]= temporary;
+		}
+		System.out.println("array elements after sorting are....");
+		for (int i=0; i<size; i++)
+			System.out.println(array[i]+ "\t");
+	}
 }

@@ -1,22 +1,35 @@
 
-import java.util.*;
-public class armm{
+import java.util.Scanner;
+public class demoArraysort{
 	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the value of n:");
-		int n=sc.nextInt();
-		int Sum=0;
-		int num=n;
-		int rem=0;
-		do{
-			rem=num%10;
-			Sum=Sum+(rem*rem*rem);
-			num=num/10;
+		int array[] =new int[10];
+		Scanner inScanner=new Scanner(System.in);
+		System.out.println("Enter array size");
+		int size=inScanner.nextInt();
+		System.out.println("Enter array elements one by one");
+		for(int i=0; i<size; i++)
+		array [i]=inScanner.nextInt();
+		System.out.println("Array elements before sorting are");
+		for (int i=0; i<size; i++)
+		System.out.print(array[i]+"\t");
+		System.out.println();
+		inScanner.close();
+		for (int i=0; i<size-1; i++)
+		{
+			int minidex=i;
+			for(int j=i+1; j<size; j++)
+			{
+				if(array[j]<array[minidex])
+				minidex=j;
+			}
+			
+			int temporary=array[i];
+			array[i]=array[minidex];
+			array[minidex]=temporary;
 		}
-		while(num>0);
-		if(Sum==n){
-			System.out.println("number is armstrong number");
-		}
-		System.out.println("number is not armstrong number");
+		System.out.println("Array elements after sorting are");
+		for(int i=0; i<size; i++)
+		System.out.print(array[i]+"\t");
+		//break;
 	}
 }

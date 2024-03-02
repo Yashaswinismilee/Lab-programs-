@@ -1,33 +1,25 @@
 
-class values
+10.Learn and understand what are command line arguments? WAP 
+                     implement the same.
+
+package week2;
+
+public class commandline
 {
-byte Byte;
-int integer;
-long Long;
-short Short;
-boolean Boolean;
-String string;
-float Float;
-char ch;
-double Double;
-void getvalues()
-{
-System.out.println("The Default value of primitive datatype Byte: "+ Byte);
-System.out.println("The Default value of primitive datatype Integer: "+ integer);
-System.out.println("The Default value of primitive datatype long: "+ Long);
-System.out.println("The Default value of primitive datatype Short: "+ Short);
-System.out.println("The Default value of primitive datatype Boolean: "+Boolean);
-System.out.println("The Default value of string: "+ string); System.out.println("The
-Default value of primitive datatype Float: "+ Float);
-System.out.println("The Default value of primitive datatype char: "+ ch);
-System.out.println("The Default value of primitive datatype double: "+ Double);
-}
-}
-public class defaultvalues
-{
-public static void main(String[] args)
-{
-values var=new values();
-var.getvalues();
-}
+	public static void main(String args[])
+	{
+		if(args.length>0)
+		{
+			System.out.println("java buzzwords...");
+			for (byte i=0;i<args.length;i++)
+			{
+				System.out.println(i+1+"."+ args[i]);
+			}
+		}
+		else
+		{
+			System.out.println("NO COMMAND LINE ARGUMENT FOUND");
+		}
+	}
+
 }

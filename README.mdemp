@@ -1,23 +1,24 @@
 import java.util.Scanner;
-class palidromExample
+public class Sum_of_Negativeno
 {
 	public static void main(String[] args) 
 	{
-		int num,rev=0,rem;
-		Scanner inScanner=new Scanner(System.in);
-		System.out.println("Enter the number:");
-		num=inScanner.nextInt();
-		inScanner.close();
-		int temp=num;
-		while(num!=0)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter number of elements:");
+		int n=sc.nextInt();
+		System.out.println("Enter array of elements");
+		int arr[]=new int [n];
+		for (int i=0; i<n; i++)
 		{
-			rem=num%10; // getting remainder
-			rev=(rev*10)+rem;
-			num=num/10;
+			arr[i]=sc.nextInt();
 		}
-		if(temp==rev)
-		System.out.println(temp+"is a palindrome number");
-		else
-		System.out.println(temp+" is a palindrome");
+		int Sum1=0;
+		for (int i=0; i<n; i++)
+		{
+			if (arr[i]<0)
+			Sum1+=arr[i];
+		}
+		System.out.println("the Sum of negative numbers="+Sum1);
+		sc.close();
 	}
 }

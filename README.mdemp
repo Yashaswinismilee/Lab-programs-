@@ -1,33 +1,28 @@
 
-package week02;
-
-class Student {
-	String StudName,dept;
-	int Rollno;
-	static String clg = "GPT";
-	int percentage;
-	void setstudent(String Name,int rollno,String cdept,int per)
-	{
-		StudName=Name;
-		Rollno=rollno;
-		dept=cdept;
-		percentage=per;
+public class vowelcount {
+	static void CountCharacterType(String str) {
+		byte vowelCount=0,consonantCount=0,digitCount=0,SplChars=0;
+		for(Short i=0;i<str.length();i++) {
+			char ch=str.charAt(i);
+			if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z')) {
+				ch=Character.toLowerCase(ch);
+				if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+					vowelCount++;
+				else
+					consonantCount++;
+			}
+			else if(ch>='0'&&ch<='9')
+				digitCount++;
+			else
+				SplChars++;
+		}
+		System.out.println("The total number of vowels in the given String:"+vowelCount);
+		System.out.println("The total number of consonants in the given String:"+consonantCount);
+		System.out.println("The total number of digit in the given String:"+digitCount);
+		System.out.println("The total number of Special Character in the       given String:"+SplChars);
 	}
-	void getStudent()
-	{
-		System.out.println(StudName+"\t"+Rollno+"\t"+clg+"\t"+dept+"\t"+percentage);
-	}
-}
-class Stud
-{
-	public static void main(String args[])
-	{
-		System.out.println("Name\tRollno\tCollege\tDepartment\tPercentage");
-		Student stud1=new Student();
-		Student stud2=new Student();
-		stud1.setstudent("Sanjana",155,"CS",99);
-		stud2.setstudent("Veena",100,"CE",45);
-		stud1.getStudent();
-		stud2.getStudent();
+	static public void main(String[]args) {
+		String str=("Habit-2:Begin with an end in your mind./nStephen R.Covey author of 7 habit of Effective People,suggest that effictive individuals have a clear vision of| their desire destination before embarking on any endeavor.");
+		CountCharacterType(str);
 	}
 }

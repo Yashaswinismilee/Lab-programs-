@@ -1,4 +1,3 @@
-
 public class vowelcount {
 	static void CountCharacterType(String str) {
 		byte vowelCount=0,consonantCount=0,digitCount=0,SplChars=0;

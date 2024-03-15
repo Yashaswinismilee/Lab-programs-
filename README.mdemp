@@ -1,60 +1,73 @@
-import java.util.Scanner;
-public class demoSRPCalcualator{
-	public static void main(String[]args){
-		double result=0;
-		readInputValues input=new readInputValues();
-		switch(input.operation){
-			case '+' :
-			       result=Addition.sum(input);break;
-			case '-' :
-			       result=Substraction.difference(input);break;
-			case '*' :
-			       result=Multiplication.product(input);break;
-			case '/' :
-			       result=Division.quotient(input);break;
-			case '%' :
-			       result=Modulus.reminder(input);break;
-			default:
-			       System.out.println("Enter valid choice....");break;
-			       }
+import java.util.*;
+public class demoSingleResponsibility{
+	public static void main(String[]args)
+	{
+		Student sony=new Student();
+		sony.setName("Sony Mathew");
+		sony.setregisterNo("119CS20001");
+		RequestBook rb=new RequestBook();
+		rb.setbookName("Java programming");
+		rb.setduration(2);
+		rd.setStudent(sony);
+		rd.searchBook();
+		IssueBook iborder=new IssueBook(rb);
+		iborder.issueBook();
 	}
 }
-class readInputValues{
-	double num1,num2;
-	char operation;
-	readInputValues(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter any non zero number....");
-		num1=sc.nextDouble();
-		System.out.println("Enter any non integer number....");
-		num2=sc.nextDouble();
-		System.out.print("Enter your choice...");
-		operation=sc.next().charAt(0);
-		sc.close();
+class student{
+	private String name;
+	private String registerNo;
+	public String getName(){return name;}
+	public void setName(String name)(this.name=name);
+	public String getregisterNo(){return registerNo;}
+	public void setregisterNo(String rno)
+	{
+		this.registerNo=rno;
 	}
 }
-class Addition{
-	public static double sum(readInputValues ip){
-		return(ip.num1+ip.num2);
+class requesBook{
+	private Student student;
+	private String request ID;
+	private String bookName;
+	private int duration;
+	public Student getStudent(){return student;}
+	public void setStudent(Student student)
+	{
+		this.student=student;
 	}
-}
-class Substraction{
-	public static double difference(readInputValues ip){
-		return(ip.num1-ip.num2);
+	public String getrequestID()return requestID;}
+	public void setrequestID(String bookName)
+	{
+		Random random=new Random();
+		this.requestID=(bookName+"_"+ random.nextInt(500));
 	}
-}
-class Multiplication{
-	public static double product(readInputValues ip) {
-		return(ip.num1*ip.num2);
+	public String getbookName(){return bookName;}
+	public void setbookName(String bookName)
+	{
+		this.bookName=bookName;
+		setrequestID(bookName);
 	}
+	public int getduration(){return duration;}
+	public void setduration(int duration)
+	{
+		this.duration=duration;
+	}
+	    public void searchBook()
+	    {
+	    	System.out.println("searching book for student+this.getstudent().geystudent().getName()"+"who has requested"+this getbookName());
+	    }
 }
-class Division{
-    public static double quotient(readInputValues ip) {
-		return(ip.num1/ip.num2);
-    }
-}
-class Modulus{
-    public static double reminder(readInputValues ip){
-		return(ip.num1%ip.num2);
+class IssueBook{
+	private requestBook rb;
+	public IssueBook(requestBook rb)(this.rb.rb;)
+	public void issueBook()
+	{
+		System.out.println("issuing the book");
+		System.out.println()
+			"with request id as"
+			+ this .rb.getrequestID()
+			+being Issued to
+		System.out.println(
+			"book is to be delivered to:"+ this.rd.getStudent().getregisterNo());
 	}
 }

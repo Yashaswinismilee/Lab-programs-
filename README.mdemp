@@ -1,53 +1,24 @@
 
-
-public class Sample {
-
-
-
-	public static void main(String[] args) 
-
-	{
-
-	int result = 0;
-
-	int num1 =  5667;
-
-		int num2 = 3216;
-
-		result = num1 + num2;
-
-		System.out.println("The Sum  of "+num1+" and "+num2+
-
-				" is "+result+".");
-
-		result = num1 -  num2;
-
-		System.out.println("The difference of "+num1+" and "+num2+
-
-				" is "+result+".");
-
-		result = num1 *  num2;
-
-		System.out.println("The product of "+num1+" and "+num2+
-
-				" is "+result+".");
-
-		result = num1 /  num2;
-
-		System.out.println("The quotient of "+num1+" and "+num2+
-
-				" is "+result+".");
-
-		result = num1 %  num2;
-
-		System.out.println("The remainder of "+num1+" and "+num2+
-
-				" is "+result+".");
-
-		
-
-	}
-
-
-
-}
+import java.util.Scanner;
+public class calculateAverage {
+    public static void main(String[] args) {
+        float average =0.0f;
+        Scanner sc = new Scanner(System.in);
+        
+        /*This line declares array Integer Wrapper Object */
+        Integer ciel, cie2, cie3;
+        /* - Autobox
+        * The parsed value of integer constant is converted wrapper  Object */ 
+        System.out.println("Enter the score of First Internal:");
+        ciel = Integer.parseInt(sc.next());
+        System.out.println("Enter the score of Second Internal: ");
+        cie2 = Integer.parseInt(sc.next());
+        System.out.println("Enter the score of Third Internal: ");
+        cie3= Integer.parseInt(sc.next());
+        /* Unbox
+        * The wrapper Object value is converted into Primitive Data Type */ 
+        average = (float) (ciel + cie2 + cie3)/3;
+        System.out.println("The average Internal Score is "+average);
+        sc.close();
+    }
+}﻿

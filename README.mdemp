@@ -1,108 +1,95 @@
-package week6;
-import student.Student;
-import requestbook.RequestBook;
-import issuebook.IssueBook;
 
-public  class demoSRp {
-    public static void main(String[] args) {
-        Student sony = new Student();
-        sony.setname("Sony Mathew");
-        sony.setregisterNO("119cs22048");
-        RequestBook rb = new RequestBook();
-        rb.setbookName("java programming");
-        rb.setduration(2);
-        rb.setStudent(sony);
-        rb.searchBook();
-        IssueBook ibOrder = new IssueBook(rb);
-        ibOrder.issubook();
+package emp;
+import java.util.Scanner;
+public class Employee {
+	Short empId;
+	public int expYears;
+	String empName;
+	public float salary;
+	public Employee() {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("enter employee number...");
+		empId=Short.parseShort(sc.next());
+		System.out.println("enter employee name");
+		empName=sc.next();
+		System.out.println("enter employee gross salary");
+		salary=Float.parseFloat(sc.next());
+		System.out.println("enter employee years of 
+           experience");   
+		expYears=Integer.parseInt(sc.next());
+	}
+	public void getEmployee() {
+	  System.out.println("empId+"\t"+empName+"\t"+expYears+"\t"+
+       salary");
+     }
+}
+*****************************************************************
+package bonus;
+import emp.Employee;
+public class issuebonus {
+	public static void issueEmployeeBonus(Employee emp) {
+		if(emp.expYears>10)
+			emp.salary=emp.salary+(emp.salary* 0.15f);
+		else
+			emp.salary=emp.salary+(emp.salary* 0.05f);	
+	}
+}
+*****************************************************************
+package Week6;
+import emp.Employee;
+import bonus.issuebonus;
+public class demoPackage {
+	public static void main(String[] args) {
+		System.out.println("this program illustrates use of 
+           packages");
+		Employee list[]= new Employee[3];
+		/* initialize array of objects individually*/
+		for(byte i=0; i<list.length; i++)
+			list[i]=new Employee();
+		System.out.println("\n*****************************
+           **********"); 		
+		System.out.println("empId empName expYear salary");
+		System.out.println("\n*****************************
+           ***********");
+		for (byte i=0; i<list.length; i++) {
+			issuebonus.issueEmployeeBonus(list[i]);
+			list[i].getEmployee();
+	}                                		
+      System.out.println("\n*****************************
+      ************");
+	}
+}
+package emp;
+
+import java.util.Scanner;
+public class Employee {
+	Short empId;
+	public int expYears;
+	String empName;
+	public float salary;
+	public Employee() {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("enter employee number...");
+		empId=Short.parseShort(sc.next());
+		System.out.println("enter employee name");
+		empName=sc.next();
+		System.out.println("enter employee gross salary");
+		salary=Float.parseFloat(sc.next());
+		System.out.println("enter employee years of experience");   
+		expYears=Integer.parseInt(sc.next());
+	}
+	public void getEmployee() {
+	  System.out.println(empId+"\t"+empName+"\t"+expYears+"\t"+salary);
     }
 }
-package student;
+package bonus;
 
-public class Student {
-    private String name;
-    private String registerNO;
-
-    public String getname() {
-        return name;
-    }
-
-    public void setname(String name) {
-        this.name = name;
-    }
-
-    public String getregisterNo() {
-        return registerNO;
-    }
-
-    public void setregisterNO(String rno) {
-        this.registerNO = rno;
-    }
-}
-package requestbook;
-	
-import student.Student;
-
-import java.util.Random;
-
-public class RequestBook {
-    private Student student;
-    private String requestID;
-    private String bookName;
-    private int duration;
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public String getrequestID() {
-        return requestID;
-    }
-
-    public void setrequestId(String bookName) {
-        Random random = new Random();
-        this.requestID = (bookName + "_" + random.nextInt(500));
-    }
-
-    public String getbookName() {
-        return bookName;
-    }
-
-    public void setbookName(String bookName) {
-        this.bookName = bookName;
-        setrequestId(bookName);
-    }
-
-    public int getduration() {
-        return duration;
-    }
-
-    public void setduration(int duration) {
-        this.duration = duration;
-    }
-
-    public void searchBook() {
-        System.out.println("searching book for student - " + this.getStudent().getname() + " who has requested " + this.getbookName());
-    }
-}
-package issuebook;
-import student.Student;
-import requestbook.RequestBook;
-
-public class IssueBook {
-    private RequestBook rb;
-
-    public IssueBook(RequestBook rb) {
-        this.rb = rb;
-    }
-
-    public void issubook() {
-        System.out.println("issuing the book");
-        System.out.println("with request id as " + this.rb.getrequestID() + " being issued to " + this.rb.getStudent().getname());
-        System.out.println("book is to be delivered to: " + this.rb.getStudent().getregisterNo());
-    }
+import emp.Employee;
+public class issuebonus {
+	public static void issueEmployeeBonus(Employee emp) {
+		if(emp.expYears>10)
+			emp.salary=emp.salary+(emp.salary* 0.15f);
+		else
+			emp.salary=emp.salary+(emp.salary* 0.05f);	
+	}
 }

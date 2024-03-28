@@ -1,54 +1,68 @@
+
 import java.util.Scanner;
-interface OrderDelivery
+interface shape
 {
-	public void deliverOrder();
+	public short calculateArea();
 }
-class Swiggy implements OrderDelivery
+class Rectangle implements shape
 {
-	String cust_name;
-	byte orderID;
-	Swiggy(){
+	short length;
+	short width;
+	Rectangle(){
 		Scanner inScanner=new Scanner(System.in);
-		System.out.println("Enter the customer Name...");
-		cust_name=inScanner.next();
-		System.out.println("Enetr the Customer Nmae...");
-		orderID=inScanner.nextByte();
+		System.out.println("enter length of rectangle....");
+		length=inScanner.nextShort();
+		System.out.println("enter width of rectangle....");
+		width=inScanner.nextShort();
 	}
-	public void deliverOrder() {
-		System.out.println("Delivering food order of Mr."+cust_name+"with order number"+orderID+".");
+	public short calculateArea() {
+		return(short)(length*width);
 	}
 }
-class SwiggyInstamart implements OrderDelivery
+class Circle implements shape
 {
-	String cust_name;
-	byte orderID;
-	int product_qty;
-	SwiggyInstamart(){
+	public short radius;
+	Circle(){
 		Scanner inScanner=new Scanner(System.in);
-		System.out.println("Enter the Customer Name...");
-		cust_name=inScanner.next();
-		System.out.println("Enter the order ID...");
-		orderID=inScanner.nextByte();
-		System.out.println("Enter the product quantity...");
-		product_qty=inScanner.nextInt();
+		System.out.println("enter radius of Circle....");
+		radius=inScanner.nextShort();
 	}
-	public void deliverOrder() {
-		System.out.print("Delivering Grocery order of Mr."+cust_name+"with order number"+orderID+".\nThe total no products delivered are"+product_qty);	
+	public short calculateArea() {
+		return(short)(3.147*radius*radius);
 	}
 }
-class Delivery
+class Square implements shape
 {
-	public void deliverToCustomer(OrderDelivery od) {
-	od.deliverOrder();
+	short side;
+	Square(){
+		Scanner inScanner=new Scanner(System.in);
+		System.out.println("enter side of Square....");
+		side=inScanner.nextShort();
+		inScanner.close();
+		}
+	public short calculateArea() {
+		return(short)(side*side);
 	}
 }
-public class demoOCP{
+class invokeShape
+{
+	public short calculateShapeArea(shape ishape) {
+		return ishape.calculateArea();
+	}
+}
+public class demoOpenClosePrinciple{
 	public static void main(String args[])
 	{
-		Delivery order=new Delivery();
-		Swiggy sw=new Swiggy();
-		order.deliverToCustomer(sw);
-		SwiggyInstamart insta=new SwiggyInstamart();
-		order.deliverToCustomer(insta);
+		invokeShape is = new invokeShape();
+		Rectangle rect=new Rectangle();
+		Circle cir=new Circle();
+		Square sqr=new Square();
+		short rarea=is.calculateShapeArea(rect);
+		short carea=is.calculateShapeArea(cir);
+		short sarea=is.calculateShapeArea(sqr);
+		System.out.println("*********OUTPUT*********");
+		System.out.println("Area of Rectangle is="+rarea);
+		System.out.println("Area of Cicle is="+carea);
+		System.out.println("Area of Square is="+sarea);	
 	}
 }

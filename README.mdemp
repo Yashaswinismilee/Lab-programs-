@@ -1,48 +1,31 @@
+public class Animal {
+    private String species;
+    private String sound;
 
-abstract class myCalculator
-{
-abstract void performArithmetic(int operand1, int operand2);
-}
-class performAddition extends myCalculator
-{
-void performArithmetic(int num1, int num2)
-{
-System.out.println("The sum of two numbers is..."+(num1+num2));
-}
-}
-class performSubstraction extends myCalculator
-{
-void performArithmetic(int num1, int num2)
-{
-System.out.println("The difference of two numbers is..."+(num1-num2));
-}
-}
-class performMultiplication extends myCalculator
-{
-void performArithmetic(int num1, int num2)
-{
-System.out.println("The product of two numbers is..."+(num1*num2));
-}
-}
-class performDivision extends myCalculator
-{
-void performArithmetic(int num1, int num2)
-{
-System.out.println("The remainder after division is..."+(num1%num2));
-}
-}
-public class demoAbstraction
-{
-public static void main(String[] args)
-{
-performAddition sum = new performAddition();
-sum.performArithmetic(20, 30);
+    public Animal(String species, String sound) {
+        this.species = species;
+        this.sound = sound;
+    }
 
-performSubstraction diff = new performSubstraction();
-diff.performArithmetic(120, 30);
-performMultiplication product = new performMultiplication();
-product.performArithmetic(12, 33);
-performDivision rem = new performDivision();
-rem.performArithmetic(1213, 33);
-}
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
+    public static void main(String[] args) {
+        Animal animal = new Animal("Dog", "Woof");
+        System.out.println("Species: " + animal.getSpecies());
+        System.out.println("Sound: " + animal.getSound());
+    }
 }
